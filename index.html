@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Академия «Нейроквантор» — школа бизнес-эффективности и психологических тренингов для подростков в Москве</title>
+<meta name="description" content="Развитие эмоционального интеллекта, лидерства и навыков будущего у подростков в Москве. Лагеря на каникулах и занятия выходного дня. Геймификация и фирменный «Нейро-Маркет»." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          display: ['Space Grotesk', 'sans-serif'],
+        },
+        colors: {
+          neon: {
+            cyan: '#00F0FF',
+            violet: '#B14BFF',
+            pink: '#FF3CAC',
+          }
+        },
+        animation: {
+          'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          'float': 'float 6s ease-in-out infinite',
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-20px)' },
+          }
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0A0E1A;
+    color: #E5E7EB;
+  }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+  /* Сетка-фон */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Неоновый градиентный текст */
+  .gradient-text {
+    background: linear-gradient(135deg, #00F0FF 0%, #B14BFF 50%, #FF3CAC 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Свечение */
+  .glow-cyan { box-shadow: 0 0 40px rgba(0, 240, 255, 0.35); }
+  .glow-violet { box-shadow: 0 0 40px rgba(177, 75, 255, 0.35); }
+  .glow-pink { box-shadow: 0 0 40px rgba(255, 60, 172, 0.35); }
+
+  .btn-neon {
+    background: linear-gradient(135deg, #00F0FF 0%, #B14BFF 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+  }
+  .btn-neon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 45px rgba(177, 75, 255, 0.6);
+  }
+
+  .card {
+    background: linear-gradient(145deg, rgba(23, 29, 48, 0.8), rgba(15, 20, 35, 0.9));
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    transform: translateY(-4px);
+  }
+
+  /* Blob-фоны */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Аккордеон */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .accordion-item.open .accordion-content {
+    max-height: 600px;
+  }
+  .accordion-item.open .accordion-icon {
+    transform: rotate(45deg);
+  }
+  .accordion-icon {
+    transition: transform 0.3s ease;
+  }
+
+  /* Скроллбар */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0A0E1A; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00F0FF, #B14BFF);
+    border-radius: 10px;
+  }
+
+  /* Мобильное меню */
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .mobile-menu.open {
+    max-height: 500px;
+  }
+
+  /* Мерцание нейронов */
+  @keyframes neuron-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  .neuron-dot {
+    animation: neuron-pulse 3s ease-in-out infinite;
+  }
+</style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0A0E1A]/70 border-b border-cyan-400/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center glow-cyan">
+          <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 text-[#0A0E1A]">
+            <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 w-3 h-3 bg-neon-pink rounded-full neuron-dot"></span>
+        </div>
+        <div class="leading-tight">
+          <div class="font-display font-bold text-white text-lg tracking-tight">Академия</div>
+          <div class="font-display font-bold text-sm gradient-text tracking-wider">«НЕЙРОКВАНТОР»</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#program" class="text-sm text-gray-300 hover:text-neon-cyan transition-colors">Программа</a>
+        <a href="#price" class="text-sm text-gray-300 hover:text-neon-cyan transition-colors">Форматы и Цены</a>
+        <a href="#market" class="text-sm text-gray-300 hover:text-neon-cyan transition-colors">Магазин наград</a>
+        <a href="#contact" class="text-sm text-gray-300 hover:text-neon-cyan transition-colors">Контакты</a>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="#contact" class="btn-neon px-6 py-3 rounded-full text-sm font-semibold text-[#0A0E1A] inline-block">
+          Записаться
+        </a>
+      </div>
+
+      <button id="menuBtn" class="lg:hidden text-white p-2" aria-label="Меню">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-4 py-6 border-t border-cyan-400/10">
+        <a href="#program" class="text-gray-300 hover:text-neon-cyan transition-colors">Программа</a>
+        <a href="#price" class="text-gray-300 hover:text-neon-cyan transition-colors">Форматы и Цены</a>
+        <a href="#market" class="text-gray-300 hover:text-neon-cyan transition-colors">Магазин наград</a>
+        <a href="#contact" class="text-gray-300 hover:text-neon-cyan transition-colors">Контакты</a>
+        <a href="#contact" class="btn-neon px-6 py-3 rounded-full text-sm font-semibold text-[#0A0E1A] text-center">Записаться</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+  <div class="blob bg-neon-cyan w-96 h-96 -top-20 -left-20 animate-pulse-slow"></div>
+  <div class="blob bg-neon-violet w-[500px] h-[500px] top-1/2 -right-40 animate-pulse-slow"></div>
+  <div class="blob bg-neon-pink w-80 h-80 bottom-0 left-1/3 opacity-20"></div>
+
+  <div class="grid-bg absolute inset-0 opacity-40"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-cyan/30 bg-neon-cyan/5 mb-8">
+        <span class="w-2 h-2 rounded-full bg-neon-cyan neuron-dot"></span>
+        <span class="text-xs sm:text-sm text-neon-cyan font-medium tracking-wide">Набор на программы 2026 года открыт</span>
+      </div>
+
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-7xl leading-[1.05] text-white mb-6">
+        Школа <span class="gradient-text">бизнес-эффективности</span> и психологических тренингов для подростков в Москве
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl">
+        Развитие ключевых навыков будущего, эмоционального интеллекта и лидерских качеств через игровой формат. Программы лагеря на каникулах и занятия выходного дня.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mb-16">
+        <a href="#price" class="btn-neon px-8 py-4 rounded-full font-semibold text-[#0A0E1A] text-center text-base">
+          Выбрать формат обучения →
+        </a>
+        <a href="#program" class="px-8 py-4 rounded-full font-semibold text-white border border-white/20 hover:border-neon-cyan hover:text-neon-cyan transition-all text-center text-base">
+          Посмотреть программу
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="font-display text-3xl font-bold text-white mb-1">80%</div>
+          <div class="text-sm text-gray-400">Практических занятий — никакой сухой теории и скучных лекций</div>
+        </div>
+
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-violet to-neon-pink flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="font-display text-3xl font-bold gradient-text mb-1">Нейроны</div>
+          <div class="text-sm text-gray-400">Игровая внутренняя валюта за личную активность и ДЗ</div>
+        </div>
+
+        <div class="card rounded-2xl p-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-neon-pink to-neon-cyan flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div class="font-display text-3xl font-bold text-white mb-1">Психологи</div>
+          <div class="text-sm text-gray-400">Бережная экспертная поддержка и забота на каждом этапе</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative py-20 sm:py-28 overflow-hidden">
+  <div class="blob bg-neon-violet w-96 h-96 top-20 right-0 opacity-25"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <div class="inline-block px-4 py-1.5 rounded-full border border-neon-pink/30 bg-neon-pink/5 text-neon-pink text-xs font-medium tracking-wider uppercase mb-4">
+        Родителям на заметку
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+        Знакомые <span class="gradient-text">ситуации</span>?
+      </h2>
+      <p class="text-gray-400 text-lg">Мы знаем, о чём вы переживаете. И у нас есть бережное решение — без нотаций и давления.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <div class="space-y-5">
+        <div class="card rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center">
+            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-white text-lg mb-1">Ребёнок проводит всё время в гаджетах</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Беснонечный скроллинг вместо живого общения, потерян интерес к учёбе и реальным хобби.</p>
+          </div>
+        </div>
+
+        <div class="card rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center">
+            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-white text-lg mb-1">Испытывает жуткий стресс перед экзаменами</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">ОГЭ, ЕГЭ, контрольные — школьная тревожность съедает все силы, и результаты сильно падают.</p>
+          </div>
+        </div>
+
+        <div class="card rounded-2xl p-6 flex gap-5">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center">
+            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-white text-lg mb-1">Сложно находит общий язык со сверстниками</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Постоянные конфликты, замкнутость, страх публичных выступлений и новых знакомств.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rounded-2xl p-8 lg:p-10 border-neon-cyan/30 glow-cyan relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-60 h-60 bg-neon-cyan/10 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 mb-6">
+            <span class="w-2 h-2 rounded-full bg-neon-cyan neuron-dot"></span>
+            <span class="text-xs font-semibold text-neon-cyan tracking-wider uppercase">Наше решение</span>
+          </div>
+
+          <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-5 leading-tight">
+            Бережное развитие самостоятельности и стрессоустойчивости — <span class="gradient-text">без скучных нотаций</span>
+          </h3>
+
+          <p class="text-gray-300 leading-relaxed mb-8">
+            Мы не читаем лекций в духе «как надо жить». Мы погружаем подростка в игровую бизнес-среду, где он сам принимает важные решения, учится на ошибках и побеждает в безопасном пространстве под кураторством психологов.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-neon-cyan/20 border border-neon-cyan flex items-center justify-center mt-0.5">
+                <svg class="w-3 h-3 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-gray-300 text-sm">Формат «равный — равному»: сильное поддерживающее окружение</span>
+            </li>
+            <li class="flex gap-3">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-neon-cyan/20 border border-neon-cyan flex items-center justify-center mt-0.5">
+                <svg class="w-3 h-3 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-gray-300 text-sm">Мини-группы до 12-15 человек — индивидуальное внимание тренера</span>
+            </li>
+            <li class="flex gap-3">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-neon-cyan/20 border border-neon-cyan flex items-center justify-center mt-0.5">
+                <svg class="w-3 h-3 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-gray-300 text-sm">«Родительская гостиная» и обратная связь мамам и папам по итогам модулей</span>
+            </li>
+            <li class="flex gap-3">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-neon-cyan/20 border border-neon-cyan flex items-center justify-center mt-0.5">
+                <svg class="w-3 h-3 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <span class="text-gray-300 text-sm">Реальные бизнес-симуляции и психологические игры вместо скучных параграфов</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="program" class="relative py-20 sm:py-28 overflow-hidden">
+  <div class="blob bg-neon-cyan w-96 h-96 bottom-20 left-0 opacity-20"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <div class="inline-block px-4 py-1.5 rounded-full border border-neon-cyan/30 bg-neon-cyan/5 text-neon-cyan text-xs font-medium tracking-wider uppercase mb-4">
+        Программа обучения
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+        6 модулей, которые <span class="gradient-text">меняют мышление</span>
+      </h2>
+      <p class="text-gray-400 text-lg">Каждый блок — это погружение в реальную задачу. Нажмите на карточку, чтобы узнать детали.</p>
+    </div>
+
+    <div class="space-y-4 max-w-4xl mx-auto">
+
+      <div class="accordion-item card rounded-2xl overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between p-6 sm:p-8 text-left">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center font-display font-bold text-[#0A0E1A] text-xl">01</div>
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-1">Эмоциональный интеллект и управление стрессом</h3>
+              <p class="text-sm text-gray-400">Анатомия эмоций, защита от буллинга и мягкая подготовка к ОГЭ / ЕГЭ</p>
+            </div>
+          </div>
+          <div class="accordion-icon flex-shrink-0 w-10 h-10 rounded-full border border-neon-cyan/30 flex items-center justify-center ml-4">
+            <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 sm:px-8 pb-8 pt-0 border-t border-cyan-400/10">
+            <p class="text-gray-300 leading-relaxed mb-5 pt-4">
+              Подросток учится распознавать свои эмоции, экологично справляться с агрессией, управлять тревогой перед контрольными и экзаменами, защищать личные границы и выстраивать психологический иммунитет к манипуляциям.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Техники экспресс-саморегуляции и заземления на экзаменах</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Тренинг психологического айкидо против буллинга</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Аукцион эмоциональных состояний и рефлексия инсайтов</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Ролевое моделирование школьных ситуаций с психологами</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item card rounded-2xl overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between p-6 sm:p-8 text-left">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-neon-violet to-neon-pink flex items-center justify-center font-display font-bold text-white text-xl">02</div>
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-1">Тайм-менеджмент: эффективное планирование</h3>
+              <p class="text-sm text-gray-400">Целеполагание без скуки, борьба с прокрастинацией и цифровой детокс</p>
+            </div>
+          </div>
+          <div class="accordion-icon flex-shrink-0 w-10 h-10 rounded-full border border-neon-cyan/30 flex items-center justify-center ml-4">
+            <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 sm:px-8 pb-8 pt-0 border-t border-cyan-400/10">
+            <p class="text-gray-300 leading-relaxed mb-5 pt-4">
+              Переводим планирование в формат увлекательной RPG-игры. Учим ставить цели по SMART (от покупки ПК до вуза мечты), расставлять приоритеты и управлять временем, когда вокруг миллион цифровых соблазнов.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Матрица Эйзенхауэра и квест «Пожиратели времени»</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Метод «Помодоро» и декомпозиция крупных задач («разделка слона»)</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Оцифровка целей в современных планировщиках (Notion, Habitica)</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Игровой суд над Прокрастинацией и Ленью</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item card rounded-2xl overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between p-6 sm:p-8 text-left">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-neon-pink to-neon-cyan flex items-center justify-center font-display font-bold text-[#0A0E1A] text-xl">03</div>
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-1">Современное лидерство и искусство самопрезентации</h3>
+              <p class="text-sm text-gray-400">Ораторское мастерство, харизма бренда и бизнес-моделирование</p>
+            </div>
+          </div>
+          <div class="accordion-icon flex-shrink-0 w-10 h-10 rounded-full border border-neon-cyan/30 flex items-center justify-center ml-4">
+            <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 sm:px-8 pb-8 pt-0 border-t border-cyan-400/10">
+            <p class="text-gray-300 leading-relaxed mb-5 pt-4">
+              Раскрываем индивидуальный лидерский потенциал: от избавления от страха публичных выступлений до управления командой. Учим позиционированию, ответственности и формированию личного бренда в сети и жизни.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Словесный ораторский джем и выступления в стиле Лифт-презентации</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Управленческая игра со сменой стилей руководства</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Упаковка сильных качеств в концепцию личного бренда</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Техника развивающей обратной связи и делегирования</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item card rounded-2xl overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between p-6 sm:p-8 text-left">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-pink flex items-center justify-center font-display font-bold text-[#0A0E1A] text-xl">04</div>
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-1">Эффективные коммуникации и нетворкинг</h3>
+              <p class="text-sm text-gray-400">Переговоры по стратегии Win-Win (Выигрыш-Выигрыш)</p>
+            </div>
+          </div>
+          <div class="accordion-icon flex-shrink-0 w-10 h-10 rounded-full border border-neon-cyan/30 flex items-center justify-center ml-4">
+            <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 sm:px-8 pb-8 pt-0 border-t border-cyan-400/10">
+            <p class="text-gray-300 leading-relaxed mb-5 pt-4">
+              Учим слышать собеседника, находить компромиссы, аргументировать позицию и заводить полезные знакомства. Избавляем от барьеров в общении со взрослыми и учителями.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Жесткие управленческие поединки по технологии В. Тарасова</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Гарвардский метод переговоров без уступок и конфликтов</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Интерактив Speed Meeting (быстрые знакомства с идеями)</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-cyan">◆</span>Испорченный телефон 2.0: отработка активного слушания</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item card rounded-2xl overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between p-6 sm:p-8 text-left">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-neon-violet to-neon-cyan flex items-center justify-center font-display font-bold text-[#0A0E1A] text-xl">05</div>
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-1">Финансовая грамотность и предпринимательское мышление</h3>
+              <p class="text-sm text-gray-400">Управление бюджетом, юнит-экономика и защита стартап-проектов</p>
+            </div>
+          </div>
+          <div class="accordion-icon flex-shrink-0 w-10 h-10 rounded-full border border-neon-cyan/30 flex items-center justify-center ml-4">
+            <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 sm:px-8 pb-8 pt-0 border-t border-cyan-400/10">
+            <p class="text-gray-300 leading-relaxed mb-5 pt-4">
+              Развиваем финансовое мышление: от ведения карманных денег и основ инвестирования до создания полноценных коммерческих продуктов. Изучаем маркетинг и считаем первую прибыль без скучных формул.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Финансовый симулятор ведения бюджета и учета кредитных рисков</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Генерация идей по методу Уолта Диснея (Мечтатель/Реалист/Критик)</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Маркетинговые войны и расчет себестоимости Unit-экономики</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-violet">◆</span>Итоговая большая экономическая симуляция «Миллионер за день»</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item card rounded-2xl overflow-hidden">
+        <button class="accordion-trigger w-full flex items-center justify-between p-6 sm:p-8 text-left">
+          <div class="flex items-center gap-5">
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-neon-pink to-neon-violet flex items-center justify-center font-display font-bold text-white text-xl">06</div>
+            <div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-1">Критическое мышление и цифровая грамотность</h3>
+              <p class="text-sm text-gray-400">Фактчекинг, когнитивные ловушки и безопасная работа с ИИ</p>
+            </div>
+          </div>
+          <div class="accordion-icon flex-shrink-0 w-10 h-10 rounded-full border border-neon-cyan/30 flex items-center justify-center ml-4">
+            <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 sm:px-8 pb-8 pt-0 border-t border-cyan-400/10">
+            <p class="text-gray-300 leading-relaxed mb-5 pt-4">
+              Учимся фильтровать контент в эпоху фейков и кликбейта, понимать ловушки собственного мозга, анализировать алгоритмы социальных сетей и использовать искусственный интеллект для ускорения учебы.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Детективная командная игра на базе открытых данных (OSINT)</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Разбор ловушек дофаминовых петель и алгоритмов удержания внимания</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Промт-инжиниринг: пишем технические ТЗ для ИИ-ассистентов</div>
+              <div class="flex gap-2 text-sm text-gray-400"><span class="text-neon-pink">◆</span>Ролевой судебный процесс над популярными медиа-мифами</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="price" class="relative py-20 sm:py-28 overflow-hidden">
+  <div class="blob bg-neon-pink w-[500px] h-[500px] top-0 left-1/2 -translate-x-1/2 opacity-20"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <div class="inline-block px-4 py-1.5 rounded-full border border-neon-violet/30 bg-neon-violet/5 text-neon-violet text-xs font-medium tracking-wider uppercase mb-4">
+        Форматы обучения
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+        Выберите <span class="gradient-text">удобный ритм</span>
+      </h2>
+      <p class="text-gray-400 text-lg">Два формата — одна мощная программа. Подстраиваемся под расписание вашей семьи.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+      <div class="card rounded-3xl p-8 lg:p-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-neon-cyan/10 rounded-full blur-3xl group-hover:bg-neon-cyan/20 transition-all"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-6">
+            <div class="px-3 py-1.5 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan text-xs font-semibold tracking-wider uppercase">
+              Каникулы
+            </div>
+            <svg class="w-12 h-12 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+
+          <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-3">Городской интенсив</h3>
+          <p class="text-gray-400 mb-8">Глубокое экспресс-погружение в атмосферу Академии на целую неделю во время школьных каникул.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-cyan mt-0.5">▸</span>
+              <span><strong class="text-white">5 дней</strong> интенсивной командной практики (с пн по пт)</span>
+            </li>
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-cyan mt-0.5">▸</span>
+              <span>Занятия с 10:00 до 17:00, горячие обеды и кофе-брейки включены</span>
+            </li>
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-cyan mt-0.5">▸</span>
+              <span>Максимальная концентрация нетворкинга, бизнес-игр и тренингов</span>
+            </li>
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-cyan mt-0.5">▸</span>
+              <span>Финальная защита мини-стартапов и проектов в пятницу</span>
+            </li>
+          </ul>
+
+          <div class="flex items-end justify-between pt-6 border-t border-cyan-400/10">
+            <div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Стоимость курса</div>
+              <div class="font-display font-bold text-3xl text-white">35 000 ₽</div>
+            </div>
+            <a href="#contact" class="btn-neon px-6 py-3 rounded-full font-semibold text-[#0A0E1A] text-sm">Забронировать</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rounded-3xl p-8 lg:p-10 relative overflow-hidden group border-neon-violet/30">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-neon-violet/10 rounded-full blur-3xl group-hover:bg-neon-violet/20 transition-all"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-6">
+            <div class="px-3 py-1.5 rounded-full bg-neon-violet/10 border border-neon-violet/30 text-neon-violet text-xs font-semibold tracking-wider uppercase">
+              В течение года
+            </div>
+            <svg class="w-12 h-12 text-neon-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+
+          <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-3">Академия выходного дня</h3>
+          <p class="text-gray-400 mb-8">Регулярные фундаментальные субботние или воскресные занятия, не мешающие школе.</p>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-violet mt-0.5">▸</span>
+              <span><strong class="text-white">1 раз в неделю</strong> (выходной день) на протяжении учебного года</span>
+            </li>
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-violet mt-0.5">▸</span>
+              <span>Занятия по 4 академических часа с интерактивным брейком</span>
+            </li>
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-violet mt-0.5">▸</span>
+              <span>Домашние задания и внедрение навыков в жизнь за «Нейроны»</span>
+            </li>
+            <li class="flex gap-3 text-gray-300 text-sm">
+              <span class="text-neon-violet mt-0.5">▸</span>
+              <span>Плавное долгосрочное закрепление привычек успешного лидера</span>
+            </li>
+          </ul>
+
+          <div class="flex items-end justify-between pt-6 border-t border-cyan-400/10">
+            <div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Стоимость в месяц</div>
+              <div class="font-display font-bold text-3xl text-white">24 000 ₽</div>
+            </div>
+            <a href="#contact" class="btn-neon px-6 py-3 rounded-full font-semibold text-[#0A0E1A] text-sm">Записаться</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="market" class="relative py-20 sm:py-28 overflow-hidden">
+  <div class="blob bg-neon-cyan w-96 h-96 top-1/3 right-0 opacity-20"></div>
+  <div class="blob bg-neon-violet w-96 h-96 bottom-0 left-0 opacity-20"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <div class="inline-block px-4 py-1.5 rounded-full border border-neon-pink/30 bg-neon-pink/5 text-neon-pink text-xs font-medium tracking-wider uppercase mb-4">
+        Геймификация
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+        Внутренняя валюта <span class="gradient-text">«Нейроны»</span>
+      </h2>
+      <p class="text-gray-400 text-lg">Подростки зарабатывают игровую валюту за активность и выполнение заданий, а в конце обучения обменивают её на полезные сувениры и технику в «Нейро-Маркете».</p>
+    </div>
+
+    <div class="card rounded-3xl p-8 lg:p-12 mb-10">
+      <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-10 text-center">Как зарабатываются <span class="gradient-text">«Нейроны»</span></h3>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center mb-4 glow-cyan">
+            <svg class="w-10 h-10 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+          </div>
+          <div class="font-display font-bold text-2xl text-white mb-1">+50 ₦</div>
+          <div class="text-sm text-gray-400">За смелость, активность на тренинге и сильные вопросы</div>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-neon-violet to-neon-pink flex items-center justify-center mb-4 glow-violet">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          </div>
+          <div class="font-display font-bold text-2xl text-white mb-1">+150 ₦</div>
+          <div class="text-sm text-gray-400">За выполненное ДЗ и внедрение полезной привычки</div>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-neon-pink to-neon-cyan flex items-center justify-center mb-4 glow-pink">
+            <svg class="w-10 h-10 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+          </div>
+          <div class="font-display font-bold text-2xl text-white mb-1">+300 ₦</div>
+          <div class="text-sm text-gray-400">За победу в командном бизнес-кейсе или симуляции</div>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-neon-cyan to-neon-pink flex items-center justify-center mb-4 glow-cyan">
+            <svg class="w-10 h-10 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="font-display font-bold text-2xl text-white mb-1">+500 ₦</div>
+          <div class="text-sm text-gray-400">За эмпатию, поддержку сокомандников и лидерство</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card rounded-3xl p-8 lg:p-12 border-neon-violet/30 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-neon-violet/10 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon-violet/10 border border-neon-violet/30 text-neon-violet text-xs font-semibold tracking-wider uppercase mb-4">
+              <span class="w-2 h-2 rounded-full bg-neon-violet neuron-dot"></span>
+              Нейро-Маркет
+            </div>
+            <h3 class="font-display font-bold text-2xl lg:text-3xl text-white">
+              Обменивай <span class="gradient-text">«Нейроны»</span> на крутые призы
+            </h3>
+          </div>
+          <div class="flex-shrink-0">
+            <div class="px-5 py-3 rounded-2xl bg-gradient-to-br from-neon-cyan/10 to-neon-violet/10 border border-neon-cyan/30">
+              <div class="text-xs text-gray-400 uppercase tracking-wider">Ассортимент магазина</div>
+              <div class="font-display font-bold text-xl text-white">30+ позиций</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-cyan/40 transition-all">
+            <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-neon-cyan/20 to-neon-violet/20 flex items-center justify-center mb-4">
+              <svg class="w-20 h-20 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+            </div>
+            <div class="font-display font-bold text-white text-lg mb-1">Оверсайз-худи «Нейроквантор»</div>
+            <p class="text-sm text-gray-400 mb-3">Фирменное тяжелое худи с уникальной неоновой вышивкой на спине</p>
+            <div class="flex items-center justify-between">
+              <span class="font-display font-bold gradient-text text-lg">2 500 ₦</span>
+              <span class="text-xs text-gray-500">Главный хит</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-violet/40 transition-all">
+            <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-neon-violet/20 to-neon-pink/20 flex items-center justify-center mb-4">
+              <svg class="w-20 h-20 text-neon-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="font-display font-bold text-white text-lg mb-1">Матовая термокружка</div>
+            <p class="text-sm text-gray-400 mb-3">Стильная термокружка 400 мл с проявляющимся от тепла принтом</p>
+            <div class="flex items-center justify-between">
+              <span class="font-display font-bold gradient-text text-lg">800 ₦</span>
+              <span class="text-xs text-gray-500">Популярно в школе</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-pink/40 transition-all">
+            <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-neon-pink/20 to-neon-cyan/20 flex items-center justify-center mb-4">
+              <svg class="w-20 h-20 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <div class="font-display font-bold text-white text-lg mb-1">Беспроводной пауэрбанк</div>
+            <p class="text-sm text-gray-400 mb-3">Компактный MagSafe пауэрбанк 10 000 mAh с лазерной гравировкой</p>
+            <div class="flex items-center justify-between">
+              <span class="font-display font-bold gradient-text text-lg">4 000 ₦</span>
+              <span class="text-xs text-gray-500">Премиум-лут</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-cyan/40 transition-all">
+            <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-neon-cyan/20 to-neon-pink/20 flex items-center justify-center mb-4">
+              <svg class="w-20 h-20 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div class="font-display font-bold text-white text-lg mb-1">Планер личных целей «Нейро»</div>
+            <p class="text-sm text-gray-400 mb-3">Дизайнерский ежедневник с системой SMART-планирования и трекерами</p>
+            <div class="flex items-center justify-between">
+              <span class="font-display font-bold gradient-text text-lg">600 ₦</span>
+              <span class="text-xs text-gray-500">Базовый набор</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-violet/40 transition-all">
+            <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-neon-violet/20 to-neon-cyan/20 flex items-center justify-center mb-4">
+              <svg class="w-20 h-20 text-neon-violet" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <div class="font-display font-bold text-white text-lg mb-1">Плотный кастомный шоппер</div>
+            <p class="text-sm text-gray-400 mb-3">Износостойкий шоппер из эко-материалов со стильным минималистичным принтом</p>
+            <div class="flex items-center justify-between">
+              <span class="font-display font-bold gradient-text text-lg">500 ₦</span>
+              <span class="text-xs text-gray-500">Стиль и экология</span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-pink/40 transition-all">
+            <div class="w-full aspect-square rounded-xl bg-gradient-to-br from-neon-pink/20 to-neon-violet/20 flex items-center justify-center mb-4">
+              <svg class="w-20 h-20 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            </div>
+            <div class="font-display font-bold text-white text-lg mb-1">Игровые беспроводные наушники</div>
+            <p class="text-sm text-gray-400 mb-3">TWS-наушники с низким пингом аудио и зарядным боксом под бренд Академии</p>
+            <div class="flex items-center justify-between">
+              <span class="font-display font-bold gradient-text text-lg">7 500 ₦</span>
+              <span class="text-xs text-gray-500">Легендарный приз</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-5 rounded-2xl bg-gradient-to-r from-neon-cyan/5 to-neon-violet/5 border border-cyan-400/10 text-center">
+          <p class="text-gray-300 text-sm">
+            💡 <strong class="text-white">Важно для родителей:</strong> Игровую валюту «Нейроны» невозможно купить за реальные деньги — её можно только заработать собственным трудом. Это учит подростков ценить свои достижения, брать на себя ответственность и системно работать на долгосрочный результат.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="relative py-20 sm:py-28 overflow-hidden">
+  <div class="blob bg-neon-cyan w-[500px] h-[500px] top-0 left-0 opacity-20"></div>
+  <div class="blob bg-neon-violet w-[500px] h-[500px] bottom-0 right-0 opacity-20"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+      <div class="card rounded-3xl p-8 lg:p-10">
+        <div class="inline-block px-4 py-1.5 rounded-full border border-neon-cyan/30 bg-neon-cyan/5 text-neon-cyan text-xs font-medium tracking-wider uppercase mb-4">
+          Запись на обучение
+        </div>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-white mb-4">
+          Оставьте заявку
+        </h2>
+        <p class="text-gray-400 mb-8">Заполните поля формы, укажите возраст ребенка, и мы ответим на любые организационные вопросы.</p>
+
+        <!-- Рабочая форма Web3Forms -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+          <!-- Ваш секретный ключ доступа -->
+          <input type="hidden" name="access_key" value="5181c8ab-e3d7-4413-8631-241210ea003f">
+          <!-- Источник -->
+          <input type="hidden" name="from_name" value="Академия Нейроквантор">
+          <!-- Тема письма -->
+          <input type="hidden" name="subject" value="Новая заявка с сайта">
+
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Имя родителя</label>
+            <input type="text" name="parentName" required
+              class="w-full px-5 py-4 rounded-xl bg-[#0A0E1A]/80 border border-cyan-400/20 text-white placeholder-gray-500 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all"
+              placeholder="Например, Анна">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Возраст ребёнка</label>
+            <select name="age" required
+              class="w-full px-5 py-4 rounded-xl bg-[#0A0E1A]/80 border border-cyan-400/20 text-white focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all">
+              <option value="" class="bg-[#0A0E1A]">Выберите возраст</option>
+              <option value="10-12" class="bg-[#0A0E1A]">10–12 лет</option>
+              <option value="13-14" class="bg-[#0A0E1A]">13–14 лет</option>
+              <option value="15-17" class="bg-[#0A0E1A]">15–17 лет</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">Ваше сообщение или комментарий</label>
+            <textarea name="message" required rows="4"
+              class="w-full px-5 py-4 rounded-xl bg-[#0A0E1A]/80 border border-cyan-400/20 text-white placeholder-gray-500 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/20 transition-all"
+              placeholder="Укажите ваши вопросы или удобный способ связи (например, ник в Telegram)"></textarea>
+          </div>
+
+          <button type="submit" class="w-full btn-neon px-8 py-4 rounded-xl font-semibold text-[#0A0E1A] text-base">
+            Записаться на бесплатную консультацию
+          </button>
+
+          <p class="text-xs text-gray-500 text-center">
+            Нажимая кнопку, вы соглашаетесь с <a href="#" class="text-neon-cyan hover:underline">политикой обработки персональных данных</a>
+          </p>
+        </form>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <div class="inline-block px-4 py-1.5 rounded-full border border-neon-violet/30 bg-neon-violet/5 text-neon-violet text-xs font-medium tracking-wider uppercase mb-4">
+            Контакты
+          </div>
+          <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-2">Приезжайте в гости</h3>
+          <p class="text-gray-400">Проведём индивидуальную экскурсию, познакомим с тренерами и покажем инновационное пространство нашей Академии.</p>
+        </div>
+
+        <div class="card rounded-2xl p-6 flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Адрес офиса</div>
+            <div class="text-white font-medium">г. Красногорск, Павшинский бульвар, д. 17</div>
+            <div class="text-gray-400 text-sm">Павшинская пойма</div>
+          </div>
+        </div>
+
+        <div class="card rounded-2xl p-6 flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-neon-pink to-neon-cyan flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Электронная почта</div>
+            <a href="mailto:hello@neuroquantor.ru" class="text-white font-medium hover:text-neon-cyan transition-colors">hello@neuroquantor.ru</a>
+            <div class="text-gray-400 text-sm">Официальные запросы и партнерство</div>
+          </div>
+        </div>
+
+        <div class="card rounded-2xl p-6 flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-pink flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#0A0E1A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">График работы Академии</div>
+            <div class="text-white font-medium">Пн–Пт: 10:00 – 21:00 (Консультации)</div>
+            <div class="text-gray-400 text-sm">Сб–Вс: 10:00 – 18:00 (Тренинговые дни)</div>
+          </div>
+        </div>
+
+        <div class="flex gap-3 pt-2">
+          <a href="#" class="flex-1 card rounded-xl p-4 flex items-center justify-center gap-2 text-gray-300 hover:text-neon-cyan transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.99-1.74 6.65-2.89 7.99-3.44 3.81-1.58 4.6-1.86 5.12-1.87.11 0 .37.03.54.17.14.12.18.28.2.45-.01.06.01.24 0 .38z"/></svg>
+            <span class="text-sm font-medium">Telegram</span>
+          </a>
+          <a href="#" class="flex-1 card rounded-xl p-4 flex items-center justify-center gap-2 text-gray-300 hover:text-neon-violet transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.525-2.049-1.714-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.339-3.202-2.17-3.042-2.763-5.32-2.763-5.795 0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.78 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.474-.085.72-.576.72z"/></svg>
+            <span class="text-sm font-medium">ВКонтакте</span>
+          </a>
+          <a href="#" class="flex-1 card rounded-xl p-4 flex items-center justify-center gap-2 text-gray-300 hover:text-neon-pink transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span class="text-sm font-medium">Instagram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="relative border-t border-cyan-400/10 bg-[#060912] py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-neon-cyan to-neon-violet flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 text-[#0A0E1A]">
+              <path d="M12 2L14 8L20 8L15 12L17 18L12 14L7 18L9 12L4 8L10 8L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-display font-bold text-white">Академия «Нейроквантор»</div>
+            <div class="text-xs text-gray-500">Школа бизнес-эффективности и лидерства</div>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm max-w-md leading-relaxed">
+          Развиваем эмоциональный интеллект, лидерство, финансовую грамотность и навыки будущего у подростков 10–17 лет через игровой формат и экспертную поддержку практикующих психологов.
+        </p>
+      </div>
+
+      <div>
+        <div class="font-display font-bold text-white mb-4 text-sm uppercase tracking-wider">Навигация</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#program" class="text-gray-400 hover:text-neon-cyan transition-colors">Программа обучения</a></li>
+          <li><a href="#price" class="text-gray-400 hover:text-neon-cyan transition-colors">Форматы и Стоимость</a></li>
+          <li><a href="#market" class="text-gray-400 hover:text-neon-cyan transition-colors">Нейро-Маркет</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-neon-cyan transition-colors">Контакты центра</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-display font-bold text-white mb-4 text-sm uppercase tracking-wider">Документы</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">Образовательная лицензия</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">Политика конфиденциальности</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">Публичный договор оферты</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors">Реквизиты организации</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-8 border-t border-cyan-400/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="text-sm text-gray-500">© 2026 Академия «Нейроквантор». Все права защищены.</div>
+      <div class="text-xs text-gray-600">Красногорск · Павшинский бульвар, 17</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Аккордеон программы
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.accordion-item');
+      const wasOpen = item.classList.contains('open');
+
+      // Закрыть все
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+
+      // Открыть текущий, если был закрыт
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Мобильное меню
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  // Закрытие при клике по ссылке
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
