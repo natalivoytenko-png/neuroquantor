@@ -724,92 +724,128 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-  <!-- Товар 1: Худи -->
-  <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-cyan/40">
-    <div class="product-image-wrapper mb-4">
-      <img src="худи.jpg" alt="Фирменное оверсайз-худи Академии Нейроквантор" class="product-image" loading="lazy">
-    </div>
-    <div class="font-display font-bold text-white text-lg mb-1">Оверсайз-худи</div>
-    <p class="text-sm text-gray-400 mb-3">Фирменное худи с логотипом Академии и неоновой вышивкой</p>
-    <div class="flex items-center justify-between">
-      <span class="font-display font-bold gradient-text text-lg">2 500 ₦</span>
-      <span class="text-xs text-gray-500">Хит сезона</span>
-    </div>
-  </div>
-
-  <!-- Товар 2: Термокружка -->
-  <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-violet/40">
-    <div class="product-image-wrapper mb-4">
-      <img src="чашка.jpg" alt="Термокружка с термочувствительным принтом" class="product-image" loading="lazy">
-    </div>
-    <div class="font-display font-bold text-white text-lg mb-1">Термокружка</div>
-    <p class="text-sm text-gray-400 mb-3">Чёрная термокружка 400 мл с термочувствительным принтом</p>
-    <div class="flex items-center justify-between">
-      <span class="font-display font-bold gradient-text text-lg">800 ₦</span>
-      <span class="text-xs text-gray-500">Удобно в школу</span>
+ <section class="products-section relative py-16 sm:py-24">
+  <!-- Заголовок секции -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-violet/30 bg-neon-violet/5 text-neon-violet text-xs font-semibold tracking-wider uppercase mb-4">
+        <span class="w-2 h-2 rounded-full bg-neon-violet neuron-dot"></span>
+        Нейро-Маркет
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+        Обменивай <span class="gradient-text">«Нейроны»</span> на крутые призы
+      </h2>
+      <p class="text-gray-400 text-lg">Заработай игровую валюту за активность и забери то, что нравится.</p>
     </div>
   </div>
 
-  <!-- Товар 3: Пауэрбанк -->
-  <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-pink/40">
-    <div class="product-image-wrapper mb-4">
-      <img src="павербанк.jpg" alt="Беспроводной пауэрбанк 10 000 mAh" class="product-image" loading="lazy">
-    </div>
-    <div class="font-display font-bold text-white text-lg mb-1">Пауэрбанк</div>
-    <p class="text-sm text-gray-400 mb-3">Беспроводной пауэрбанк 10 000 mAh с гравировкой</p>
-    <div class="flex items-center justify-between">
-      <span class="font-display font-bold gradient-text text-lg">4 000 ₦</span>
-      <span class="text-xs text-gray-500">Топ-приз</span>
-    </div>
-  </div>
+  <!-- Сетка товаров -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
 
-  <!-- Товар 4: Планер -->
-  <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-cyan/40">
-    <div class="product-image-wrapper mb-4">
-      <img src="блокнот.jpg" alt="Планер Нейро с трекером привычек" class="product-image" loading="lazy">
-    </div>
-    <div class="font-display font-bold text-white text-lg mb-1">Планер «Нейро»</div>
-    <p class="text-sm text-gray-400 mb-3">Ежедневник с системой целей и трекером привычек</p>
-    <div class="flex items-center justify-between">
-      <span class="font-display font-bold gradient-text text-lg">600 ₦</span>
-      <span class="text-xs text-gray-500">Must have</span>
-    </div>
-  </div>
-
-  <!-- Товар 5: Шоппер -->
-  <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-violet/40">
-    <div class="product-image-wrapper mb-4">
-      <img src="шопер.jpg" alt="Кастомный шоппер с авторским принтом" class="product-image" loading="lazy">
-    </div>
-    <div class="font-display font-bold text-white text-lg mb-1">Кастомный шоппер</div>
-    <p class="text-sm text-gray-400 mb-3">Плотный шоппер с авторским принтом от наших студентов</p>
-    <div class="flex items-center justify-between">
-      <span class="font-display font-bold gradient-text text-lg">500 ₦</span>
-      <span class="text-xs text-gray-500">Эко-стиль</span>
-    </div>
-  </div>
-
-  <!-- Товар 6: Наушники -->
-  <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-pink/40">
-    <div class="product-image-wrapper mb-4">
-      <img src="наушники.jpg" alt="Беспроводные TWS-наушники с логотипом" class="product-image" loading="lazy">
-    </div>
-    <div class="font-display font-bold text-white text-lg mb-1">Беспроводные наушники</div>
-    <p class="text-sm text-gray-400 mb-3">TWS-наушники в кейсе с логотипом Академии</p>
-    <div class="flex items-center justify-between">
-      <span class="font-display font-bold gradient-text text-lg">7 500 ₦</span>
-      <span class="text-xs text-gray-500">Супер-приз</span>
-    </div>
-  </div>
-
-</div>
-
-        <div class="mt-10 p-5 rounded-2xl bg-gradient-to-r from-neon-cyan/5 to-neon-violet/5 border border-cyan-400/10 text-center">
-          <p class="text-gray-300 text-sm">
-            💡 <strong class="text-white">Важно для родителей:</strong> Игровую валюту «Нейроны» невозможно купить за реальные деньги — её можно только заработать собственным трудом. Это учит подростков ценить свои достижения, брать на себя ответственность и системно работать на долгосрочный результат.
-          </p>
+      <!-- Карточка 1: Худи -->
+      <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-cyan/40">
+        <div class="product-image-wrapper mb-4">
+          <img src="худи.jpg" alt="Фирменное оверсайз-худи Академии Нейроквантор" class="product-image" loading="lazy">
+        </div>
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <h3 class="font-display font-bold text-white text-lg">Оверсайз-худи</h3>
+          <span class="flex-shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30">Хит</span>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Фирменное худи с логотипом Академии и неоновой вышивкой. Мягкий флис, оверсайз-крой.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-cyan-400/10">
+          <span class="font-display font-bold gradient-text text-xl">2 500 ₦</span>
+          <span class="text-xs text-gray-500">50 занятий</span>
         </div>
       </div>
+
+      <!-- Карточка 2: Чашка -->
+      <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-violet/40">
+        <div class="product-image-wrapper mb-4">
+          <img src="чашка.jpg" alt="Термокружка с термочувствительным принтом" class="product-image" loading="lazy">
+        </div>
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <h3 class="font-display font-bold text-white text-lg">Термокружка</h3>
+          <span class="flex-shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-neon-violet/10 text-neon-violet border border-neon-violet/30">В школу</span>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Чёрная термокружка 400 мл с термочувствительным принтом — проявляется от горячего напитка.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-cyan-400/10">
+          <span class="font-display font-bold gradient-text text-xl">800 ₦</span>
+          <span class="text-xs text-gray-500">16 занятий</span>
+        </div>
+      </div>
+
+      <!-- Карточка 3: Павербанк -->
+      <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-pink/40">
+        <div class="product-image-wrapper mb-4">
+          <img src="павербанк.jpg" alt="Беспроводной пауэрбанк 10 000 mAh с гравировкой" class="product-image" loading="lazy">
+        </div>
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <h3 class="font-display font-bold text-white text-lg">Пауэрбанк</h3>
+          <span class="flex-shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-neon-pink/10 text-neon-pink border border-neon-pink/30">Топ-приз</span>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Беспроводной пауэрбанк 10 000 mAh с лазерной гравировкой логотипа Академии.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-cyan-400/10">
+          <span class="font-display font-bold gradient-text text-xl">4 000 ₦</span>
+          <span class="text-xs text-gray-500">80 занятий</span>
+        </div>
+      </div>
+
+      <!-- Карточка 4: Блокнот -->
+      <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-cyan/40">
+        <div class="product-image-wrapper mb-4">
+          <img src="блокнот.jpg" alt="Планер Нейро с системой целей и трекером привычек" class="product-image" loading="lazy">
+        </div>
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <h3 class="font-display font-bold text-white text-lg">Планер «Нейро»</h3>
+          <span class="flex-shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30">Must have</span>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Ежедневник с системой постановки целей, трекером привычек и нейро-дизайном обложки.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-cyan-400/10">
+          <span class="font-display font-bold gradient-text text-xl">600 ₦</span>
+          <span class="text-xs text-gray-500">12 занятий</span>
+        </div>
+      </div>
+
+      <!-- Карточка 5: Шопер -->
+      <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-violet/40">
+        <div class="product-image-wrapper mb-4">
+          <img src="шопер.jpg" alt="Кастомный шоппер с авторским принтом" class="product-image" loading="lazy">
+        </div>
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <h3 class="font-display font-bold text-white text-lg">Кастомный шоппер</h3>
+          <span class="flex-shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-neon-violet/10 text-neon-violet border border-neon-violet/30">Эко</span>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Плотный шоппер из органического хлопка с авторским принтом от студентов Академии.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-cyan-400/10">
+          <span class="font-display font-bold gradient-text text-xl">500 ₦</span>
+          <span class="text-xs text-gray-500">10 занятий</span>
+        </div>
+      </div>
+
+      <!-- Карточка 6: Наушники -->
+      <div class="product-card rounded-2xl bg-[#0A0E1A]/60 border border-cyan-400/10 p-6 hover:border-neon-pink/40">
+        <div class="product-image-wrapper mb-4">
+          <img src="наушники.jpg" alt="Беспроводные TWS-наушники с логотипом Академии" class="product-image" loading="lazy">
+        </div>
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <h3 class="font-display font-bold text-white text-lg">TWS-наушники</h3>
+          <span class="flex-shrink-0 text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full bg-neon-pink/10 text-neon-pink border border-neon-pink/30">Супер-приз</span>
+        </div>
+        <p class="text-sm text-gray-400 mb-4 leading-relaxed">Беспроводные наушники с активным шумоподавлением в кейсе с логотипом Академии.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-cyan-400/10">
+          <span class="font-display font-bold gradient-text text-xl">7 500 ₦</span>
+          <span class="text-xs text-gray-500">150 занятий</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Подсказка внизу -->
+    <div class="mt-10 p-5 rounded-2xl bg-gradient-to-r from-neon-cyan/5 to-neon-violet/5 border border-cyan-400/10 text-center">
+      <p class="text-gray-300 text-sm">
+        💡 <strong class="text-white">Важно:</strong> «Нейроны» нельзя купить — только заработать. Это учит подростков ценить результат и работать на долгосрочную цель.
+      </p>
     </div>
   </div>
 </section>
